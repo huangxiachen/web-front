@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>1</h1>
+</body>
+<script>
+    let h1 = document.querySelector("h1");
+    let interval = null;
+    let i = 0;
+    function start() {//启动计时器函数
+        if (interval != null) {//判断计时器是否为空
+            clearInterval(interval);
+            interval = null;
+        }
+        interval = setInterval(overs, 1000);//启动计时器，调用overs函数，
+    }
+
+    function overs() {
+        i++;
+        console.log(i);
+        if (i === 5)
+        stop();
+
+    }
+
+    function stop() {
+        clearInterval(interval);
+        interval = null;
+    }
+    
+     start();
+
+    // stop();
+
+</script>
+
+</html>

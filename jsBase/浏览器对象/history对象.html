@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器历史对象</title>
+</head>
+
+<body>
+    <div>
+        <button data-id="0">后退</button>
+        <button data-id="1">前进</button>
+        <button data-id="2">刷新</button>
+    </div>
+</body>
+<script>
+    const div = document.querySelector('div');
+    div.addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON') {
+            if (e.target.dataset.id === '0')
+                history.back();
+            if (e.target.dataset.id === '1')
+                history.forward;
+            if (e.target.dataset.id === '2')
+                location.reload(true);
+
+        }
+
+    });
+</script>
+
+</html>

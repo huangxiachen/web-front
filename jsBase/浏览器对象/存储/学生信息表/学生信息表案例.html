@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生信息管理</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>新增学员</h1>
+  <form class="info" autocomplete="off">
+    姓名：<input type="text" class="uname" name="uname" />
+    年龄：<input type="text" class="age" name="age" />
+    性别:
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    薪资：<input type="text" class="salary" name="salary" />
+    就业城市：<select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">录入</button>
+  </form>
+
+  <h1>就业榜</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 
+        <tr>
+          <td>1001</td>
+          <td>欧阳霸天</td>
+          <td>19</td>
+          <td>男</td>
+          <td>15000</td>
+          <td>上海</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>
+        </tr> 
+        -->
+    </tbody>
+  </table>
+  <script>
+    // 参考数据
+    const initData = [
+      {
+        stuId: 1001,
+        uname: '欧阳霸天',
+        age: 19,
+        gender: '男',
+        salary: '20000',
+        city: '上海',
+      }
+    ]
+    let dataName = 'initData';
+    //获取已有数据
+    let infoArr = JSON.parse(localStorage.getItem(dataName));
+    //获取节点
+    const tbody = document.querySelector('tbody');
+    //渲染数据
+    render();
+    //渲染数据
+    function render() {
+      //清空tbody
+      tbody.innerHTML = '';
+      // //获取本地数据
+      let infoArr = JSON.parse(localStorage.getItem(dataName));
+      //检查本地有无数据，有就渲染并存储
+      if (infoArr != null) {
+        for (let i = 0; i < infoArr.length; i++) {
+          //创建元素 'tr'
+          const tr = document.createElement('tr');
+          tr.innerHTML = ` <td>${infoArr[i].stuId}</td>
+          <td>${infoArr[i].uname}</td>
+          <td>${infoArr[i].age}</td>
+          <td>${infoArr[i].gender}</td>
+          <td>${infoArr[i].salary}</td>
+          <td>${infoArr[i].city}</td>
+          <td>
+            <a href="javascript:" data-id = "${i}"}>删除</a>
+          </td>`;
+          //插入元素
+          tbody.appendChild(tr);
+        }
+      }
+    }
+
+
+    //增加数据
+    function addInfo() {
+      //添加数据
+      //获取DOM
+      const form = document.querySelector('.info');
+      const infoValue = form.children;
+      //信号
+      let flag = true;
+      form.addEventListener('submit', function (e) {
+        // 判断信息有无漏填,阻止默认提交并提示
+        for (let i = 0; i < infoValue.length - 1; i++) {
+          //阻止默认提交
+          e.preventDefault();
+          if (infoValue[i].value === '') {
+            // //阻止默认提交
+            // e.preventDefault();
+            //判断信号
+            flag = false;
+            return alert("信息未填完整");
+          }
+
+        }
+        if (flag) {
+          //如果为空
+          if (infoArr === null) {
+            infoArr = [];
+            localStorage.setItem('initData', JSON.stringify(infoArr))
+          }
+          //接受信息的对象
+          let stuId = infoArr.length > 0 ? infoArr[infoArr.length - 1].stuId + 1: 1001;
+          const infoPerson = {
+            stuId: stuId,
+            uname: infoValue[0].value,
+            age: infoValue[1].value,
+            gender: infoValue[2].value,
+            salary: infoValue[3].value,
+            city: infoValue[4].value,
+          }
+          //存入数组
+          infoArr.push(infoPerson);
+          //存入本地
+          localStorage.setItem(dataName, JSON.stringify(infoArr));
+          //再次渲染
+          render();
+          // 重置表单
+          this.reset()
+        }
+      });
+
+    }
+    addInfo();
+    //删除数据
+    function delInfo() {
+
+      tbody.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          console.log(e);
+          infoArr.splice(e.target.dataset.id, 1);
+          //存入本地
+          localStorage.setItem(dataName, JSON.stringify(infoArr));
+          //再次渲染
+          render();
+        }
+
+      });
+
+    }
+    delInfo();
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .projectList {
+        margin: 20px auto;
+        width: 1200px;
+    }
+
+    .cleafix:after {
+        content: '.';
+        display: block;
+        clear: both;
+        overflow: hidden;
+        height: 0;
+    }
+
+    .listTitle {
+        margin-bottom: 30px;
+    }
+
+    .listTitle h4 {
+        float: left;
+    }
+
+    .listTitle span {
+        float: right;
+        font-size: 14px;
+    }
+
+    .goodsChild ul li {
+        float: left;
+        width: 228px;
+        height: 270px;
+        background-color: #fff;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        transition: all .3s;
+    }
+
+    .goodsChild ul li a img {
+        width: 100%;
+    }
+
+    .goodsChild ul li a h4 {
+        margin: 20px 20px 20px 25px;
+        font-size: 14px;
+        color: #050505;
+        font-weight: 400;
+    }
+
+    .info {
+        margin: 0 20px 0 25px;
+        font-size: 12px;
+        color: #999;
+    }  
+
+    .info span {
+        color: #ff7c2d;
+    }
+
+    .goodsChild ul li:nth-child(5n) {
+        margin-right: 0;
+    }
+</style>
+
+<body>
+    <div class="projectList">
+        <div class="listTitle">
+            <h3>精品推介</h3>
+            <span>查看全部</span>
+        </div>
+        <div class="goodsChild ">
+            <ul class="cleafix">
+                <li>
+                    <a href="#">
+                        <img src="./imgs/course01.png" alt="">
+                        <h4>Think PHP 5.0 博客系统实战项目演练</h4>
+                        <div class="info">
+                            <span>高级</span> • <span>1125</span>人在学习
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>    
+    </div>
+</body>
+<script>
+    let arr = [
+        { src: "./imgs/course01.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course02.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course03.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course04.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course05.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course06.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course07.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 },
+        { src: "./imgs/course08.png", title: "Think PHP 5.0 博客系统实战项目演练", number: 1125 }
+    ]
+    let parent = document.getElementsByClassName("goodsChild")[0].children[0];
+    // console.log(parent);
+    for (let i = 0; i < arr.length; i++) {
+        let child = document.createElement("li");
+        child.innerHTML = `<a href="#">
+                        <img src="${arr[i].src}" alt=""> 
+                        <h4>${arr[i].title}</h4 >
+                        <div class="info">
+                            <span>高级</span> • <span>${arr[i].number}</span>人在学习
+                        </div>
+                    </a>`;
+            parent.appendChild(child);
+    }
+    
+</script>
+
+</html>

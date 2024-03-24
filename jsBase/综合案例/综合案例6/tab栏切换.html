@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .tab {
+        width: 560px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid gainsboro;
+
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .tab_head {
+        padding: 10px 0;
+    }
+
+    .tab_head h2 {
+        color: #333;
+        font-weight: 500;
+        float: left;
+        margin-left: 20px;
+
+    }
+
+    .tab_head ul {
+        float: right;
+
+    }
+
+    .tab_head ul li {
+        float: left;
+        padding: 8px 20px;
+        font-size: 14px;
+        /* line-height: 35px; */
+    }
+
+    .tab_head ul li a {
+        display: block;
+
+
+    }
+
+    .active {
+        color: red;
+        border-bottom: 2px solid red;
+    }
+</style>
+
+<body>
+    <div class="tab">
+        <div class="tab_head">
+            <h2>每日特价</h2>
+            <ul>
+                <li><a class="active" href="#">精选</a></li>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">百货</a></li>
+                <li><a href="#">个护</a></li>
+                <li><a href="#">预告</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <img src="./img/tab00.png" alt="">
+        </div>
+
+    </div>
+</body>
+<script>
+    const img = document.querySelector(".content img");
+    const imgs = [
+        { url: './img/tab00.png' },
+        { url: './img/tab01.png' },
+        { url: './img/tab02.png' },
+        { url: './img/tab03.png' },
+        { url: './img/tab04.png' }]
+    console.log(img);
+    const a = document.querySelectorAll(".tab_head ul li a");
+    console.log(a);
+    for (let i = 0; i < a.length; i++) {
+        a[i].addEventListener("mouseover", function () {
+            document.querySelector(".tab_head ul li .active").classList.remove('active');
+            a[i].classList.add('active');
+            img.setAttribute("src",imgs[i].url);
+        });
+    }
+</script>
+
+</html>

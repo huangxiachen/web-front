@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const obj = {
+        uname:"Mary",
+        age:19
+    };
+      // //把对象转成字符串
+    localStorage.setItem('obj',JSON.stringify(obj));
+    // 把字符串转化成对象
+    const person = JSON.parse(localStorage.getItem('obj'));
+    console.log(person);
+    localStorage.setItem('uname','{"uname":"Mary"}');
+    const p = localStorage.getItem('uname');
+    console.log(p);
+    const s = JSON.parse(localStorage.getItem('uname'));
+    console.log(s);
+
+    // //把对象转成字符串
+    // const person2 = {uname:"Mike"};
+    // localStorage.setItem('person2',JSON.stringify(person2));
+
+</script>
+
+</html>

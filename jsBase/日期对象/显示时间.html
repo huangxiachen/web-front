@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class="time"></div>
+</body>
+
+<script>
+    //添加0
+    const addZero = function (time) {
+        const str = "0";
+        if (time >= 0 && time < 10) {
+            return str + time;
+        } else {
+            return time;
+        }
+    }
+    //输出中文星期几
+    const week = function (weekDay) {
+        const arr = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        switch (weekDay) {
+            case 0:
+                return arr[weekDay];
+                break;
+            case 1:
+                return arr[weekDay];
+                break;
+            case 2:
+                return arr[weekDay];
+                break;
+            case 3:
+                return arr[weekDay];
+                break;
+            case 4:
+                return arr[weekDay];
+                break;
+            case 5:
+                return arr[weekDay];
+                break;
+            case 6:
+                return arr[weekDay];
+                break;
+        }
+    }
+    // let timeStr = date.getFullYear() + "-" + (date.getMonth() + 1) + "-"
+    //     + addZero(date.getDate()) + "   " + week(date.getDay()) + " "
+    //     + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds())
+    // console.log(timeStr);
+    const dispaly = function () {
+        const date = new Date();
+        let timeStr = date.getFullYear() + "-" + (date.getMonth() + 1) + "-"
+            + addZero(date.getDate()) + "   " + week(date.getDay()) + " "
+            + addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds())
+        // console.log(timeStr);
+        document.querySelector('.time').innerHTML = timeStr;
+        const t = setTimeout(function () { dispaly() }, 1000);
+    }
+ dispaly();
+</script>
+
+</html>

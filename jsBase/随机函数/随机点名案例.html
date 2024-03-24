@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= ,, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ['赵云','黄忠','关羽','张飞','马超','刘备','曹操'];
+        let indexArr =[0,1,2,3,4,5,6];
+        let index;
+        for(let i = 0;i<arr.length;i++){
+            index = Math.floor(Math.random()*(indexArr.length));
+            document.write(arr[indexArr[index]]+" ");
+            indexArr.splice(index,1);
+        }
+    </script>
+</body>
+</html>

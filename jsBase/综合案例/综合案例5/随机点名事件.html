@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 500px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 30px;
+        text-align: left;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    button {
+        margin-right: 100px;
+        margin-top: 30px;
+        width: 100px;
+        height: 30px;
+    }
+
+    strong {
+        color: red;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>随机点名</h1>
+        <p>名字是:<strong></strong></p>
+        <button id="start">开始</button>
+        <button id="stop">结束</button>
+    </div>
+</body>
+
+<script>
+    // 数据数组
+    const arr = ['马超', '黄忠', '赵云', '关羽', '张飞'];
+    let index;
+    let strong = document.querySelector("strong");
+    let start = document.getElementById("start");
+    let stop = document.getElementById("stop");
+
+    function name() {
+        let index;
+        start.addEventListener("click", function () {
+            let time = setInterval(function () {
+                index = Math.floor(Math.random() * arr.length);
+                strong.innerHTML = arr[index];
+                // console.log(arr[index]);
+                stop.addEventListener("click", function () {
+                    clearInterval(time);
+                    strong.innerHTML = arr[index];
+                })
+            }, 100);
+
+        });
+
+
+    }
+    name();
+</script>
+
+</html>

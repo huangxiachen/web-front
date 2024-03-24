@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器的使用</title>
+</head>
+<style>
+    .advertisement {
+        position: relative;
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        background: pink;
+        opacity: 1;
+        text-align: center;
+    }
+
+    .advertisement button {
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+    }
+</style>
+
+<body>
+    <div class="advertisement">
+        <button>X</button>
+        <h2>我是广告</h2>
+        <p class="countdown">5</p>
+    </div>
+
+</body>
+<script>
+
+    //自动关闭倒计时广告案例
+    //获取关闭按钮
+    const x = document.querySelector(".advertisement button ");
+    const countdown = document.querySelector(".countdown");
+
+    x.addEventListener("click", function () {
+        x.parentNode.style.opacity = 0;
+
+    });
+    let interval = null;
+    let i = 5;
+    function start() {//启动计时器函数
+        if (interval != null) {//判断计时器是否为空
+            clearInterval(interval);
+            interval = null;
+        }
+        interval = setInterval(overs, 1000);//启动计时器，调用overs函数，
+    }
+
+    function overs() {
+        i--;
+        countdown.innerHTML = `${i}`;
+        console.log(i);
+        if (i === 0)
+            stop();
+        
+    }
+
+    function stop() {
+        clearInterval(interval);
+        x.parentNode.style.opacity = 0;
+        //5秒钟后自动跳转页面
+        location.href = 'https://www.vip.com';
+        interval = null;
+    }
+
+    start();
+    // //时间到了自动关闭
+    // const timer = setTimeout(function () {
+    //     x.parentNode.style.opacity = 0;
+    // }, 5000);
+</script>
+
+</html>

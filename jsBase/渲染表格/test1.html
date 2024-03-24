@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染表格</title>
+</head>
+<style>
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+
+    }
+
+    caption {
+        margin: 20px 0;
+        font-weight: 700;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #000; 
+    }
+
+    td,
+    th {
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div>
+        <table>
+            <caption>订单确认付款页面</caption>
+            <thead>
+                <tr>
+                    <th>商品名称</th>
+                    <th>商品价格</th>
+                    <th>商品数量</th>
+                    <th>总价</th>
+                    <th>收货地址</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    //弹窗
+    let goodName = prompt("请输入商品名称:");
+    let goodPrice = prompt("请输入商品价格:");
+    let goodCount = prompt("请输入商品数量:");
+    let address = prompt("请输入收货地址:");
+    let sunmPrice = goodPrice * goodCount;
+    let text = ` <tr>
+                <td>${goodName}</td>
+                <td>${goodPrice}</td>
+                <td>${goodCount}</td>
+                <td>${sunmPrice}</td>
+                <td>${address}</td>
+            </tr>`;
+    document.getElementsByTagName("tbody")[0].innerHTML = text;
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .advertisement{
+        position: relative;
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        background: pink;
+        opacity: 1;
+        text-align: center;
+    }
+    .advertisement button{
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 30px;
+    }
+</style>
+<body>
+    <div class="advertisement">
+        <button>X</button>
+        <h2>我是广告</h2>
+    </div>
+
+</body>
+<script>
+    /**
+     * 1.通过父节点获取子节点(包括文本节点 ！！！)：
+        parentObj.firstChild：获取已知父节点的第一个子节点。
+        parentObj.lastChild：获取已知父节点的最后一个子节点。
+        parentObj.childNodes：获取已知父节点的子节点数组（在IE 7中获取的是所有直接的子节点）。
+        parentObj.children：获取已知节点的直接子节点数组（在IE 7中和childNodes效果一样）。
+        parentObj.getElementsByTagName(tagName)：返回已知子节点中类型为指定值的子节点数组。
+    * 2. 通过临近节点获取兄弟节点：
+        neighbourNode.previousSibling：获取已知节点的前一个兄弟节点。
+        neighbourNode.nextSibling：获取已知节点的下一个兄弟节点。
+    * 3.通过子节点获取父节点：
+        childNode.parentNode：获取已知节点的父节点。
+     **/
+
+    //关闭广告案例
+    //获取关闭按钮
+    const x = document.querySelector(".advertisement button ");
+    x.addEventListener("click",function(){
+        x.parentNode.style.opacity = 0;
+
+    });
+
+
+
+
+</script>
+
+</html>

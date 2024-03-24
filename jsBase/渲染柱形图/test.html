@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染柱形图</title>
+</head>
+<style>
+    .out {
+        display: flex;
+        margin: 0 auto;
+        width: 700px;
+        height: 500px;
+        border-bottom: 1px solid #000;
+        border-left: 1px solid #000;
+        justify-content: space-around;
+        align-items: flex-end;
+        text-align: center;
+    }
+
+    .inner {
+        display: flex;
+        width: 50px;
+        background: pink;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    .inner span {
+        margin-top: -20px;
+    }
+
+    .inner h4 {
+        width: 70px;
+        margin-bottom: -35px;
+        margin-left: -10px;
+
+    }
+</style>
+
+<body>
+    <div class="out">
+        <!-- <div class="inner" style="height:100px;">
+            <span>1</span>
+            <h4>第一季度</h4>
+        </div>
+        <div class="inner">
+            <span>1</span>
+            <h4>第一季度</h4>
+        </div>
+        <div class="inner">
+            <span>1</span>
+            <h4>第一季度</h4>
+        </div>
+        <div class="inner">
+            <span>1</span>
+            <h4>第一季度</h4>
+        </div> -->
+    </div>
+</body>
+<script>
+    let inner = [];
+    let parent =  document.getElementsByClassName("out")[0];
+    for (let i = 0; i < 4; i++) {
+        inner.push(+prompt("请输入第"+(i+1)+"季度的销量"));
+        let child = document.createElement("div");
+        child.setAttribute("class","inner");
+        child.style.height = `${inner[i]}px`;
+        
+        // child.getAttributeNode("style").value = "height:${inner[i]}px";
+        child.innerHTML = ` <span>${inner[i]}</span>
+            <h4>第${i+1}季度</h4>`;
+
+            parent.appendChild(child);
+    }
+</script>
+
+</html>

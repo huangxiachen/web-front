@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试方法</title>
+</head>
+
+<body>
+    <input type="text">
+</body>
+<script>
+
+    //1.检测用户名
+    function checkUserName(uname) {
+        //设置用户名(6-10个字符)
+        const reg = /^[\w.+-@%#\*%!]{6,10}$/;
+        if (reg.test(uname))
+            return true;
+        else
+            return false;
+
+    }
+
+    //2.检测手机号
+    function checkPhoneNumber(phoneNumber) {
+        const reg = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/;
+        return reg.test(phoneNumber);
+    }
+    //3.检测验证码
+    //3.1 发送验证码,再与输入的对比
+    function sendCode(){
+        let code = "1234";
+        return code;
+    }
+  
+    //4.检测密码
+    function checkPassword(password) {
+        const reg = /^.*(?=.{6,20})(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*?.]).*$/;
+        return reg.test(password);
+
+    }
+
+
+    //设置密码
+    const reg = /^.*(?=.{6,20})(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*?.]).*$/
+    const input = document.querySelector('input');
+
+    input.addEventListener('keydown', function (e) {
+        if (e.code === 'Enter')
+            // console.log(checkUserName(input.value));
+            console.log(checkPhoneNumber(input.value));
+        // console.log(checkUserName(input.value));
+        // console.log(e.code);
+    });
+
+
+
+</script>
+
+</html>

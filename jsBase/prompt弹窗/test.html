@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let choice = null;
+    let inMoney = 0;
+    let outMoney = 0;
+    let total = 100;
+    while (choice  !== '4') {
+        choice = prompt("1.存钱\n2.取钱\n3.查询余额\n4.退出\n");
+        switch (choice) {
+            case '1':
+                inMoney = prompt("请输入您要存入的金额:");
+                total += (+inMoney);
+                break;
+            case '2':
+                outMoney = prompt("请输入您要存入的金额:");
+                total -= (+outMoney);
+                break;
+            case '3':
+                alert("您的余额为:" + total);
+                break;
+        }
+
+
+    }
+
+</script>
+
+</html>

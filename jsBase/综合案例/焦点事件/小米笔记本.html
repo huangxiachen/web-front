@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    input {
+        outline: none;
+        border: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .search {
+        width: 200px;
+        margin: 100px auto;
+
+    }
+
+    .search input {
+        width: 200px;
+        height: 45px;
+        padding-left: 10px;
+        border: 1px solid gainsboro;
+
+    }
+
+    .search ul li a {
+        display: block;
+        padding-left: 10px;
+        font-size: 12px;
+        color: dimgray;
+        line-height: 25px;
+    }
+
+    .search ul li a:hover {
+        background: gainsboro;
+
+    }
+
+    .search ul {
+        display: none;
+        border: 1px solid red;
+        border-top: none;
+    }
+</style>
+
+<body>
+    <div class="search">
+        <input type="search" placeholder="小米笔记本">
+        <ul>
+            <li><a href="#">全部商品</a></li>
+            <li><a href="#">小米11</a></li>
+            <li><a href="#">小米10S</a></li>
+            <li><a href="#">小米笔记本</a></li>
+            <li><a href="#">小米手机</a></li>
+            <li><a href="#">黑鲨4</a></li>
+            <li><a href="#">空调</a></li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    //获取元素
+    let input = document.querySelector(".search input");
+    let ul = document.querySelector(".search ul");
+    input.addEventListener("focus", function () {
+        ul.style.display = "block";
+        input.style.border = "1px solid red";
+    });
+    input.addEventListener("blur", function () {
+        ul.style.display = "none";
+        input.style.border = "1px solid gainsboro";
+    });
+
+</script>
+
+</html>
